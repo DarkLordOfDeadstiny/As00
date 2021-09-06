@@ -6,16 +6,41 @@ namespace HelloWorld
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Enter a name to check if it is a leap year :)");
+            Console.WriteLine("Enter a year after 1582 to check if it is a leap year :)");
+            int indput = getIndput();
+
+            if (indput>=1582)
+            {
+                printAnswer(IsLeapYear(indput));
+            }
+        }
+
+        static int getIndput()
+        {
+            try
+            {
+                return Convert.ToInt32(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("try again with a year as a real number larger than 1582");
+                return getIndput();
+            }
+        }
+
+        static void printAnswer(bool isLeapYear)
+        {
+            if (isLeapYear)
+            {
+                Console.WriteLine("yay");
+                return;
+            }
+            Console.WriteLine("nay");
         }
 
         public static bool IsLeapYear(int year)
         {
-            if (year%4==0&&year%100!=0)
-            {
-                return true;
-            }
-            else if (year%400==0)
+            if ((year%4 == 0 && year%100 != 0) || year % 400 == 0)
             {
                 return true;
             }
