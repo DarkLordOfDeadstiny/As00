@@ -6,9 +6,17 @@ namespace HelloWorld
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Enter a year after 1582 to check if it is a leap year :)");
-            int indput = getIndput();
-
+            int indput;
+            if (args != null && args.Length != 1)
+            {
+                Console.WriteLine("Enter a year after 1582 to check if it is a leap year :)");
+                indput = getIndput();
+            }
+            else
+            {
+                indput = Convert.ToInt32(args[0]);
+            }
+            
             if (indput>=1582)
             {
                 printAnswer(IsLeapYear(indput));

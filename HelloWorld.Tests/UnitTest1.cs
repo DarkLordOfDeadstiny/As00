@@ -19,14 +19,15 @@ namespace HelloWorld.Tests
         }
 
         [Fact]
-        public void Main_prints_welcome_message()
+        public void Main_prints_yay()
         {
             var writter = new StringWriter();
             Console.SetOut(writter);
 
-            Program.Main(new string[0]);
+            Program.Main(new string[]{"2020"});
 
-            Assert.Equal("Enter a name to check if it is a leap year :)", writter.GetStringBuilder().ToString().Trim());
+
+            Assert.Equal("yay", writter.GetStringBuilder().ToString().Trim());
         }
 
 
