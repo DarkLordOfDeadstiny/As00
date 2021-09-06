@@ -2,11 +2,24 @@
 
 namespace HelloWorld
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Enter a name to check if it is a leap year :)");
+        }
+
+        public static bool IsLeapYear(int year)
+        {
+            if (year%4==0&&year%100!=0)
+            {
+                return true;
+            }
+            else if (year%400==0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
